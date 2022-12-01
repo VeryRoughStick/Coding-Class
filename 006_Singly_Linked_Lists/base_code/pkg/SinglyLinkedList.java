@@ -10,7 +10,8 @@ public class SinglyLinkedList {
 		Postcondition: The head will be null 
 	*/
 	public SinglyLinkedList() {
-
+		head = null;
+	
 	}
 
 	/* 
@@ -19,14 +20,15 @@ public class SinglyLinkedList {
 	   	If the position doesn't exist, it returns -1
 	*/ 
 	public int get(int pos){
-		Node D = head.getNext();
+		
+		Node D = head;
 		int i = 0;
-		while(i < pos-1){
+		while(i < pos){
 			D = D.getNext();
-			i++
+			i++;
 		}
 		
-		if(D = Null){	
+		if(D == null){	
 			return -1;
 		}
 		else{
@@ -37,18 +39,23 @@ public class SinglyLinkedList {
 	/*
 		Insert a new Node at the given position with the data given
 	*/
-	public void insert(int pos int data){
-		Node D = head.getNext();
-		int i = 0;
-		while(i < pos-2){
-			D = D.getNext();
-			i++
+	public void insert(int pos, int data){
+		
+		Node Z = new Node(data);
+		Node D = head;
+		
+		if(pos == 0){
+			head = Z;
 		}
-		Node N = new Node(data);
-		N.setNext(D.getNext());
-		D.setNext(N);
-		
-		
+		else{
+			int i = 0;
+			while(i < pos-1){
+				D = D.getNext();
+				i++;
+			}
+			Z.setNext(D.getNext());
+			D.setNext(Z);	
+		}
 	}
 
 	/*
