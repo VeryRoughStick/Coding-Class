@@ -17,6 +17,7 @@ class main {
 		for(int i = 0; i<20; i++){
 			int C = (int)(Math.random()*19);
 			List.insert(C,-1);
+			// List.printList();
 			System.out.println(C + "spawn -1");
 		}
 		System.out.println("--------List 1----------");
@@ -24,6 +25,8 @@ class main {
 		
 		int z = 39;
 		for(int i = 0; i<20; i++){
+			// System.out.println("i" + i);
+			// System.out.println("z" + z);
 			List.swap(i,z);
 			z--;
 		}

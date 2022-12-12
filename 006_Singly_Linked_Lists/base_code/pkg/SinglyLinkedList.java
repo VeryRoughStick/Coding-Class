@@ -40,24 +40,29 @@ public class SinglyLinkedList {
 		Insert a new Node at the given position with the data given
 	*/
 	public void insert(int pos, int data){
-
+		// System.out.println("New Iteration");
+		// System.out.println("position goal " + pos);
 		Node Z = new Node(data);
+		// System.out.println("Z = "+Z.getData());
 		Node D = head;
 		
 		if(pos == 0){
 			if(head == null){
+				// System.out.println("Head set");
 				head = Z;	
 			}else{
+				// System.out.println("Head reset");
 				Z.setNext(head);
 				head = Z;	
 			}
 			
 		}
 		else{
-			int i = 0;
-			while(i < pos-1){
+			// System.out.println("D = "+D.getData());
+			for(int i = 0; i<pos-2; i++){
+				// System.out.println("i = "+ i);
 				D = D.getNext();
-				i++;
+				// System.out.println("D current" + D.getData());
 			}
 			Z.setNext(D.getNext());
 			D.setNext(Z);	
@@ -73,7 +78,10 @@ public class SinglyLinkedList {
 		for(int i = 0; i<pos-2; i++){
 			D = D.getNext();
 		}
-		D.setNext(null);
+		Node Z = D.getNext();
+		Z = Z.getNext();
+		D.setNext(Z);
+
 	}
 
 	/*
@@ -84,9 +92,11 @@ public class SinglyLinkedList {
 		int Z = get(pos2);
 		
 		insert(pos1,Z);
+
 		remove(pos1+1);
 		
-		insert(pos2, D);
+		insert(pos2,D);
+
 		remove(pos2+1);
 	}
 
@@ -95,9 +105,11 @@ public class SinglyLinkedList {
 	*/
 	public void printList(){
 		Node D = head;
+		int i = 1;
 		while(true){
-			System.out.println(D.getData());
+			System.out.println(D.getData() +" in "+ i);
 			D = D.getNext();
+			i++;
 			if(D == null){
 				break;
 			}
